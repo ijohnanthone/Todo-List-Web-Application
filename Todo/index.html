@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlowList | Modern Todo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="todo-card" aria-label="Todo application">
+      <header class="card-header">
+        <p class="eyebrow">Personal Workflow</p>
+        <h1>FlowList</h1>
+        <p class="subtitle">Plan less. Finish more.</p>
+      </header>
+
+      <form id="todo-form" class="todo-form" autocomplete="off">
+        <label for="todo-input" class="sr-only">Add a new task</label>
+        <input id="todo-input" name="todo" type="text" maxlength="140" placeholder="What needs to get done?" required />
+        <button type="submit">Add Task</button>
+      </form>
+
+      <div class="toolbar" role="toolbar" aria-label="Task filters">
+        <div class="filters" id="filters">
+          <button type="button" class="filter is-active" data-filter="all">All</button>
+          <button type="button" class="filter" data-filter="active">Active</button>
+          <button type="button" class="filter" data-filter="completed">Completed</button>
+        </div>
+        <button type="button" id="clear-completed" class="clear-btn">Clear Completed</button>
+      </div>
+
+      <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+
+      <footer class="card-footer">
+        <p id="task-count">0 tasks left</p>
+      </footer>
+    </section>
+  </main>
+
+  <template id="todo-item-template">
+    <li class="todo-item">
+      <label class="check-wrap">
+        <input type="checkbox" class="todo-check" />
+        <span class="checkmark" aria-hidden="true"></span>
+      </label>
+
+      <div class="todo-content">
+        <p class="todo-text"></p>
+        <input class="todo-edit-input" type="text" maxlength="140" />
+      </div>
+
+      <div class="todo-actions">
+        <button type="button" class="icon-btn edit-btn" aria-label="Edit task">Edit</button>
+        <button type="button" class="icon-btn delete-btn" aria-label="Delete task">Delete</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
