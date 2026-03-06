@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlowList Pro - Login</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layouts.css">
+</head>
+<body>
+  <div class="app-shell">
+    <div class="auth-container">
+      <div class="card">
+        <div class="card-header" style="text-align: center;">
+          <p class="eyebrow">Productivity Hub</p>
+          <h1>FlowList Pro</h1>
+          <p class="subtitle">Transform your workflow with intelligent task management</p>
+        </div>
+
+        <!-- Tab switcher -->
+        <div class="tabs">
+          <button class="tab is-active" data-tab="login">Login</button>
+          <button class="tab" data-tab="register">Register</button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form" class="auth-form">
+          <div class="form-group">
+            <label class="form-label" for="login-email">Email</label>
+            <input
+              type="email"
+              id="login-email"
+              class="form-input"
+              placeholder="your@email.com"
+              required
+            >
+            <div class="form-error" id="login-email-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="login-password">Password</label>
+            <input
+              type="password"
+              id="login-password"
+              class="form-input"
+              placeholder="••••••••"
+              required
+            >
+            <div class="form-error" id="login-password-error"></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">
+            <span id="login-btn-text">Sign In</span>
+            <span id="login-spinner" class="spinner" style="display: none;"></span>
+          </button>
+
+          <div id="login-error" class="form-error" style="margin-top: 1rem; text-align: center;"></div>
+        </form>
+
+        <!-- Register Form -->
+        <form id="register-form" class="auth-form" style="display: none;">
+          <div class="form-group">
+            <label class="form-label" for="register-name">Name</label>
+            <input
+              type="text"
+              id="register-name"
+              class="form-input"
+              placeholder="John Doe"
+              required
+            >
+            <div class="form-error" id="register-name-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="register-email">Email</label>
+            <input
+              type="email"
+              id="register-email"
+              class="form-input"
+              placeholder="your@email.com"
+              required
+            >
+            <div class="form-error" id="register-email-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="register-password">Password</label>
+            <input
+              type="password"
+              id="register-password"
+              class="form-input"
+              placeholder="Minimum 6 characters"
+              required
+              minlength="6"
+            >
+            <div class="form-error" id="register-password-error"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="register-role">I am a...</label>
+            <select id="register-role" class="form-select">
+              <option value="both">Student & Worker</option>
+              <option value="student">Student</option>
+              <option value="worker">Worker</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">
+            <span id="register-btn-text">Create Account</span>
+            <span id="register-spinner" class="spinner" style="display: none;"></span>
+          </button>
+
+          <div id="register-error" class="form-error" style="margin-top: 1rem; text-align: center;"></div>
+        </form>
+
+        <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px dashed var(--stroke); text-align: center; color: var(--muted); font-size: 0.9rem;">
+          <p style="margin: 0;">Features: Priority Matrix • Pomodoro Timer • Energy Tracking • Study Analytics</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/auth.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,349 @@
+/**
+ * Feature Styles - FlowList Pro
+ * Styles for specific features (tasks, pomodoro, matrix, etc.)
+ */
+
+/* Task List */
+.task-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.62rem;
+}
+
+.task-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius-md);
+  padding: 0.72rem;
+  animation: rise var(--transition-normal);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.task-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.task-item.is-completed {
+  opacity: 0.7;
+}
+
+.task-item.is-overdue {
+  border-left: 3px solid var(--danger);
+}
+
+.task-checkbox-wrap {
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.task-checkbox {
+  position: absolute;
+  opacity: 0;
+}
+
+.task-checkmark {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--accent-2);
+  border-radius: 50%;
+  display: inline-block;
+  transition: all var(--transition-fast);
+}
+
+.task-checkbox:checked + .task-checkmark {
+  border-color: var(--ok);
+  background: radial-gradient(circle at center, var(--ok) 44%, transparent 46%);
+}
+
+.task-content {
+  min-width: 0;
+}
+
+.task-text {
+  margin: 0 0 0.3rem 0;
+  word-break: break-word;
+}
+
+.task-item.is-completed .task-text {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.task-meta {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 0.4rem;
+}
+
+.task-deadline {
+  font-size: 0.8rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.task-deadline.is-overdue {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.task-deadline.is-soon {
+  color: var(--warning);
+  font-weight: 600;
+}
+
+.task-actions {
+  display: inline-flex;
+  gap: 0.35rem;
+}
+
+/* Priority Matrix */
+.priority-matrix {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.matrix-quadrant {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  min-height: 300px;
+}
+
+.matrix-quadrant-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid;
+}
+
+.quadrant-urgent-important {
+  border-color: var(--priority-urgent-important);
+}
+
+.quadrant-urgent-important .matrix-quadrant-header {
+  border-bottom-color: var(--priority-urgent-important);
+}
+
+.quadrant-not-urgent-important {
+  border-color: var(--priority-not-urgent-important);
+}
+
+.quadrant-not-urgent-important .matrix-quadrant-header {
+  border-bottom-color: var(--priority-not-urgent-important);
+}
+
+.quadrant-urgent-not-important {
+  border-color: var(--priority-urgent-not-important);
+}
+
+.quadrant-urgent-not-important .matrix-quadrant-header {
+  border-bottom-color: var(--priority-urgent-not-important);
+}
+
+.quadrant-not-urgent-not-important {
+  border-color: var(--priority-not-urgent-not-important);
+}
+
+.quadrant-not-urgent-not-important .matrix-quadrant-header {
+  border-bottom-color: var(--priority-not-urgent-not-important);
+}
+
+.matrix-quadrant-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.matrix-quadrant-count {
+  margin-left: auto;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Pomodoro Timer */
+.pomodoro-timer {
+  text-align: center;
+  padding: 2rem;
+}
+
+.pomodoro-display {
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--accent);
+  margin: 1rem 0;
+  letter-spacing: 0.05em;
+}
+
+.pomodoro-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.pomodoro-session-type {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.session-type-btn {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--stroke);
+  background: transparent;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.session-type-btn.is-active {
+  background: var(--accent-2);
+  color: #fff;
+  border-color: var(--accent-2);
+}
+
+/* Energy Tracker */
+.energy-level-selector {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.energy-level-btn {
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--stroke);
+  border-radius: 50%;
+  background: transparent;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.energy-level-btn:hover {
+  transform: scale(1.1);
+}
+
+.energy-level-btn.is-selected {
+  background: var(--accent-2);
+  color: #fff;
+  border-color: var(--accent-2);
+}
+
+/* Time Blocker */
+.time-blocker {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+}
+
+.time-slot {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--stroke);
+}
+
+.time-slot-time {
+  font-weight: 600;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.time-slot-content {
+  min-height: 60px;
+  border: 2px dashed var(--stroke);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.time-slot-content:hover {
+  background: rgba(20, 117, 225, 0.05);
+}
+
+.time-slot-content.has-task {
+  background: rgba(20, 117, 225, 0.1);
+  border-style: solid;
+  border-color: var(--accent-2);
+}
+
+/* Analytics Charts */
+.chart-container {
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--stroke);
+}
+
+.stat-card {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent-2);
+  margin: 0;
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.stat-change {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.stat-change.is-positive {
+  color: var(--ok);
+}
+
+.stat-change.is-negative {
+  color: var(--danger);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .priority-matrix {
+    grid-template-columns: 1fr;
+  }
+
+  .pomodoro-display {
+    font-size: 3rem;
+  }
+
+  .time-slot {
+    grid-template-columns: 60px 1fr;
+  }
+}
