@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlowList Pro - Login</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layouts.css">
+</head>
+<body>
+  <div class="app-shell">
+    <div class="auth-container">
+      <div class="card">
+        <div class="card-header" style="text-align: center;">
+          <p class="eyebrow">Productivity Hub</p>
+          <h1>FlowList Pro</h1>
+          <p class="subtitle">Transform your workflow with intelligent task management</p>
+        </div>
+
+
+        <!-- Login Form -->
+        <div class="login-container">
+          <form id="loginForm" class="auth-form">
+            <div class="form-group">
+              <label class="form-label" for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-input"
+                placeholder="your@email.com"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="form-input"
+                placeholder="••••••••"
+                required
+              >
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              Sign In
+            </button>
+
+            <div class="error-container" style="margin-top: 1rem; text-align: center; display: none;"></div>
+
+            <div style="margin-top: 1rem; text-align: center;">
+              <a href="#" id="showRegister" class="link">Don't have an account? Register</a>
+            </div>
+          </form>
+        </div>
+
+        <!-- Register Form -->
+        <div class="register-container hidden">
+          <form id="registerForm" class="auth-form">
+            <div class="form-group">
+              <label class="form-label" for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="form-input"
+                placeholder="John Doe"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="register-email">Email</label>
+              <input
+                type="email"
+                id="register-email"
+                name="email"
+                class="form-input"
+                placeholder="your@email.com"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="register-password">Password</label>
+              <input
+                type="password"
+                id="register-password"
+                name="password"
+                class="form-input"
+                placeholder="Minimum 8 characters"
+                required
+                minlength="8"
+              >
+              <div class="password-strength" style="display: none;"></div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="confirmPassword">Confirm Password</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                class="form-input"
+                placeholder="Confirm your password"
+                required
+              >
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              Create Account
+            </button>
+
+            <div class="error-container" style="margin-top: 1rem; text-align: center; display: none;"></div>
+
+            <div style="margin-top: 1rem; text-align: center;">
+              <a href="#" id="showLogin" class="link">Already have an account? Login</a>
+            </div>
+          </form>
+        </div>
+
+        <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px dashed var(--stroke); text-align: center; color: var(--muted); font-size: 0.9rem;">
+          <p style="margin: 0;">Features: Priority Matrix • Pomodoro Timer • Energy Tracking • Study Analytics</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/auth.js" type="module"></script>
+</body>
+</html>

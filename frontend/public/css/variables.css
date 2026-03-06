@@ -1,0 +1,53 @@
+/**
+ * Design Tokens - FlowList Pro
+ * Color palette and design system variables
+ */
+
+:root {
+  /* Colors */
+  --bg-1: #fdf6ec;
+  --bg-2: #d7ecff;
+  --card: rgba(255, 255, 255, 0.74);
+  --stroke: rgba(26, 35, 40, 0.14);
+  --text: #14212b;
+  --muted: #52626e;
+  --accent: #ff6b3d;
+  --accent-2: #1475e1;
+  --danger: #d83a48;
+  --ok: #13915b;
+  --warning: #f59e0b;
+  --info: #3b82f6;
+
+  /* Priority colors */
+  --priority-urgent-important: #ef4444;
+  --priority-not-urgent-important: #f59e0b;
+  --priority-urgent-not-important: #3b82f6;
+  --priority-not-urgent-not-important: #10b981;
+
+  /* Shadows */
+  --shadow: 0 20px 40px rgba(20, 33, 43, 0.14);
+  --shadow-sm: 0 4px 10px rgba(20, 33, 43, 0.1);
+  --shadow-lg: 0 25px 50px rgba(20, 33, 43, 0.2);
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  /* Border radius */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 26px;
+
+  /* Transitions */
+  --transition-fast: 140ms ease;
+  --transition-normal: 230ms ease;
+  --transition-slow: 350ms ease;
+
+  /* Typography */
+  --font-primary: "Space Grotesk", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
