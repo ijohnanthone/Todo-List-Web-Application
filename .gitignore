@@ -29,3 +29,18 @@ build/
 # Temporary files
 tmp/
 temp/
+
+# Test coverage
+coverage/
+.nyc_output/
+backend/coverage/
+
+# Test artifacts
+test-results/
+test-results.json
+playwright-report/
+playwright/.cache/
+screenshots/
+
+# Playwright browsers
+.ms-playwright/

@@ -445,14 +445,192 @@ Follow conventional commits:
 
 ## 🧪 Testing
 
-### Backend Tests (Pending Implementation)
+FlowList Pro includes comprehensive testing coverage with backend integration tests and frontend E2E tests.
+
+### Backend Integration Tests
+
+The backend uses **Jest** and **Supertest** for integration testing with **mongodb-memory-server** for isolated test database.
+
+#### Running Backend Tests
 
 ```bash
 cd backend
+
+# Run all tests with coverage
 npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run tests with verbose output
+npm run test:verbose
+```
+
+#### Test Coverage
+
+The test suite includes:
+
+- **Authentication Tests** (`tests/auth.test.js`)
+  - User registration (validation, duplicate emails, password hashing)
+  - User login (correct/incorrect credentials)
+  - Token-based authentication
+  - Get current user
+  - Update user profile
+  - Logout functionality
+
+- **Task Tests** (`tests/tasks.test.js`)
+  - CRUD operations (Create, Read, Update, Delete)
+  - Task completion/incompletion
+  - Filtering (priority, category, completion status)
+  - Pagination
+  - Search functionality
+  - Character limit validation (500 chars)
+  - Priority matrix organization
+
+- **Pomodoro Tests** (`tests/pomodoro.test.js`)
+  - Session creation (work, short-break, long-break)
+  - Session completion
+  - Task linking
+  - Session history
+  - Statistics calculation
+  - Duration validation
+
+- **Energy Tests** (`tests/energy.test.js`)
+  - Energy log creation (levels 1-5)
+  - Mood tracking
+  - Context notes
+  - Patterns analysis
+  - Hour of day extraction
+  - Date range filtering
+
+- **Analytics Tests** (`tests/analytics.test.js`)
+  - Overview metrics
+  - Task completion trends
+  - Category distribution
+  - Priority distribution
+  - Productivity score calculation
+  - Time of day analysis
+  - Streak calculation
+  - Weekly summary
+
+#### Test Configuration
+
+Tests use an in-memory MongoDB database, so no external database setup is required. Configuration is in:
+- `backend/jest.config.js` - Jest settings
+- `backend/tests/setup.js` - Global test configuration
+- `backend/tests/helpers.js` - Test utility functions
+
+### Frontend E2E Tests
+
+The frontend uses **Playwright** for end-to-end testing across multiple browsers.
+
+#### Installation
+
+```bash
+# Install E2E test dependencies
+npm install
+
+# Install Playwright browsers
+npx playwright install
+```
+
+#### Running E2E Tests
+
+```bash
+# Run all E2E tests
+npm run test:e2e
+
+# Run tests with UI mode (recommended for development)
+npm run test:e2e:ui
+
+# Run tests in headed mode (see browser)
+npm run test:e2e:headed
+
+# Run tests in debug mode
+npm run test:e2e:debug
+
+# View last test report
+npm run test:e2e:report
+```
+
+#### E2E Test Coverage
+
+The E2E test suite includes:
+
+- **Authentication Tests** (`tests/e2e/auth.spec.js`)
+  - User registration flow
+  - Login/logout
+  - Password validation
+  - Session persistence
+  - Protected routes
+  - Error handling
+
+- **Task Management Tests** (`tests/e2e/tasks.spec.js`)
+  - Task creation with various options
+  - Task completion/incompletion
+  - Task editing
+  - Task deletion
+  - Filtering (all, active, completed)
+  - Search functionality
+  - Data persistence
+
+- **Pomodoro Tests** (`tests/e2e/pomodoro.spec.js`)
+  - Timer display
+  - Start/pause/reset controls
+  - Countdown functionality
+  - Session types (work, break)
+  - Task integration
+  - Settings customization
+  - Session history
+
+- **Navigation Tests** (`tests/e2e/navigation.spec.js`)
+  - Main navigation menu
+  - View switching (Tasks, Pomodoro, Matrix, Analytics)
+  - Mobile navigation
+  - Keyboard shortcuts
+  - Browser back/forward
+  - Accessibility features
+
+#### Test Browsers
+
+Tests run on:
+- Chromium (Desktop)
+- Firefox (Desktop)
+- WebKit/Safari (Desktop)
+- Mobile Chrome (Pixel 5)
+- Mobile Safari (iPhone 12)
+
+#### E2E Test Configuration
+
+Configuration is in `playwright.config.js`:
+- Automatic server startup (backend and frontend)
+- Screenshots on failure
+- Video recording on retry
+- Parallel execution
+- Multiple browser testing
+
+### Test Coverage Requirements
+
+The project aims for:
+- **>70% code coverage** for backend
+- **All critical user flows** covered in E2E tests
+- **Both happy paths and error cases** tested
+
+### Continuous Integration
+
+To run tests in CI/CD:
+
+```bash
+# Backend tests
+cd backend && npm test
+
+# E2E tests (requires both servers running)
+npm run test:e2e
 ```
 
 ### Manual Testing Checklist
+
+For features not yet covered by automated tests:
 
 - [ ] User registration works
 - [ ] User login works
@@ -465,6 +643,8 @@ npm test
 - [ ] Pomodoro session creation
 - [ ] Energy log creation
 - [ ] Analytics data retrieval
+- [ ] Mobile responsiveness
+- [ ] Cross-browser compatibility
 
 ## 🚀 Deployment
 
